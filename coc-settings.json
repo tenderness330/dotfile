@@ -1,0 +1,10 @@
+{
+  "languageserver": {
+    "terraform": {
+    "command": "terraform-lsp",
+    "args": ["-enable-log-file", "-log-location", "test", "-test.v"],
+    "filetypes": ["terraform","tf"],
+    "initializationOptions": {}
+      }
+   }
+}
