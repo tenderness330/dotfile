@@ -1,5 +1,5 @@
 "vim-plug plugin
-call plug#begin('~\.vim\plugged')
+call plug#begin('~/.vim/plugged')
   Plug 'plasticboy/vim-markdown'
   Plug 'previm/previm'
   Plug 'prabirshrestha/async.vim'
