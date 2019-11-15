@@ -6,6 +6,14 @@ call plug#begin('~/.vim/plugged')
   Plug 'prabirshrestha/vim-lsp'
   Plug 'prabirshrestha/asyncomplete.vim'
   Plug 'prabirshrestha/asyncomplete-lsp.vim'
+  Plug 'hashivim/vim-terraform'
+  Plug 'altercation/vim-colors-solarized'
+  Plug 'juliosueiras/vim-terraform-completion'
+  Plug 'cocopon/iceberg.vim'
+  Plug 'Shougo/unite.vim'
+  Plug 'chase/vim-ansible-yaml'
+  Plug 'ujihisa/unite-colorscheme'
+  Plug 'nathanaelkane/vim-indent-guides'
 call plug#end()
 
 " input settings
@@ -19,9 +27,23 @@ command Term term wsl ~
 
 " view settings
 set cursorline
-syntax enable
-color murphy
+set background=dark
+let g:solarized_termcolors=256
+colorscheme iceberg
 set number
+syntax enable
+
+
+" AutoCommand
+autocmd FileType yaml,yml IndentGuidesEnable
+
+if executable('terraform-lsp')
+  au User lsp_setup call lsp#register_server({
+    \ 'name': 'terraform-lsp',
+    \ 'cmd': {server_info->['terraform-lsp']},
+    \ 'whitelist': ['terraform','tf'],
+    \ })
+endif
 
 " search settings
 set incsearch
@@ -39,12 +61,4 @@ if executable('gvim')
   set clipboard=unnamed,autoselect
   let g:previm_open_cmd = 'C:\\Program\ Files\ (x86)\\Mozilla\ Firefox\\firefox.exe'
   let g:previm_enable_realtime = 1
-endif
-
-if executable('terraform-lsp')
-  au User lsp_setup call lsp#register_server({
-    \ 'name': 'terraform-lsp',
-    \ 'cmd': {server_info->['terraform-lsp']},
-    \ 'whitelist': ['terraform','tf'],
-    \ })
 endif
