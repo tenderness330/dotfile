@@ -32,7 +32,7 @@ let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_folding_disabled = 1
 
 " gvim settings
-if executable('gvim.exe')
+if executable('gvim')
   set ff="unix"
   inoremap <ESC> <ESC>:set iminsert=0<CR>
   set guifont=HackGen\ Console:h14
