@@ -42,6 +42,7 @@ if executable('terraform-lsp')
     \ 'whitelist': ['terraform','tf'],
     \ })
 endif
+command Term terminal ++noclose
 
 " search settings
 set incsearch
