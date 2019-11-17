@@ -1,16 +1,16 @@
 "vim-plug plugin
 call plug#begin('~/.vim/plugged')
-  Plug 'plasticboy/vim-markdown'
-  Plug 'previm/previm'
+  Plug 'plasticboy/vim-markdown' , { 'for': 'markdown'}
+  Plug 'previm/previm' , { 'for': 'markdown'}
 
   Plug 'prabirshrestha/async.vim'
   Plug 'prabirshrestha/vim-lsp'
   Plug 'prabirshrestha/asyncomplete.vim'
   Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
-  Plug 'hashivim/vim-terraform'
-  Plug 'juliosueiras/vim-terraform-completion'
-  Plug 'chase/vim-ansible-yaml'
+  Plug 'hashivim/vim-terraform' , { 'for': 'terraform'}
+  Plug 'juliosueiras/vim-terraform-completion' , { 'for': 'terraform'}
+
   Plug 'nathanaelkane/vim-indent-guides'
 
   Plug 'cocopon/iceberg.vim'
@@ -34,7 +34,6 @@ colorscheme iceberg
 set number
 syntax enable
 let g:airline_powerline_fonts = 1
-let g:indent_guides_auto_colors = 1
 
 if executable('terraform-lsp')
   au User lsp_setup call lsp#register_server({
