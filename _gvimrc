@@ -1,2 +1,10 @@
 colorscheme murphy
-set guifont=Hackgen\ Console:h16
+set columns=80
+set clipboard=unnamed,autoselect
+set lines=50
+set guifont=Hackgen\ Console:h14
+inoremap <ESC> <ESC>:set iminsert=0<CR>
+let g:previm_open_cmd = 'C:\\Program\ Files\ (x86)\\Mozila\ Firefox\\firefox.exe'
+let g:previm_enable_realtime = 1
+set ff=unix
+command Term term wsl ~
