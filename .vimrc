@@ -23,7 +23,6 @@ set autoindent
 set belloff=all
 set tabstop=2
 set shiftwidth=2
-set smartindent
 
 " view settings
 set termguicolors
