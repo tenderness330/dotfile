@@ -25,6 +25,7 @@ set tabstop=2
 set shiftwidth=2
 
 " view settings
+set t_ut= " for windows color bug
 set termguicolors
 set cursorline
 set background=dark
@@ -67,6 +68,7 @@ command Term terminal ++noclose
 " search settings
 set incsearch
 set hlsearch
+set ignorecase
 
 let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_new_list_item_indent = 0
