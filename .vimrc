@@ -25,6 +25,7 @@ set autoindent
 set belloff=all
 set tabstop=2
 set shiftwidth=2
+set formatoptions+=B
 
 " view settings
 set t_ut= " for windows color bug
