@@ -2,11 +2,13 @@
 call plug#begin('~/.vim/plugged')
   Plug 'plasticboy/vim-markdown' , { 'for': 'markdown'}
   Plug 'previm/previm' , { 'for': 'markdown'}
+  Plug 'mattn/sonictemplate-vim'
 
   Plug 'prabirshrestha/async.vim'
   Plug 'prabirshrestha/vim-lsp'
   Plug 'prabirshrestha/asyncomplete.vim'
   Plug 'prabirshrestha/asyncomplete-lsp.vim'
+  Plug 'mattn/vim-lsp-settings'
 
   Plug 'hashivim/vim-terraform' , { 'for': 'terraform'}
   Plug 'juliosueiras/vim-terraform-completion' , { 'for': 'terraform'}
@@ -23,6 +25,7 @@ set autoindent
 set belloff=all
 set tabstop=2
 set shiftwidth=2
+set formatoptions+=B
 
 " view settings
 set t_ut= " for windows color bug
