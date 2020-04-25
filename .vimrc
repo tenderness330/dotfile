@@ -13,10 +13,15 @@ call plug#begin('~/.vim/plugged')
   Plug 'hashivim/vim-terraform' , { 'for': 'terraform'}
   Plug 'juliosueiras/vim-terraform-completion' , { 'for': 'terraform'}
 
-  Plug 'nathanaelkane/vim-indent-guides'
 
+  "view's plugins
   Plug 'cocopon/iceberg.vim'
+  Plug 'wadackel/vim-dogrun'
+  Plug 'tomasr/molokai'
+  Plug 'sjl/badwolf'
+  Plug 'jacoborus/tender.vim'
   Plug 'vim-airline/vim-airline'
+  Plug 'nathanaelkane/vim-indent-guides'
 call plug#end()
 
 " input settings
@@ -28,44 +33,16 @@ set shiftwidth=2
 set formatoptions+=B
 
 " view settings
-set t_ut= " for windows color bug
 set termguicolors
 set cursorline
+colorscheme badwolf
 set background=dark
-let g:solarized_termcolors=256
-colorscheme iceberg
 set number
 syntax enable
+
 if !has("gui_running")
   let g:airline_powerline_fonts = 1
 endif
-
-if executable('terraform-lsp')
-  au User lsp_setup call lsp#register_server({
-    \ 'name': 'terraform-lsp',
-    \ 'cmd': {server_info->['terraform-lsp']},
-    \ 'whitelist': ['terraform','tf'],
-    \ })
-endif
-
-if executable('gopls')
-  au User lsp_setup call lsp#register_server({
-		\ 'name': 'gopls',
-		\ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
-		\ 'whitelist': ['go'],
-		\ })
-  autocmd BufWritePre *.go LspDocumentFormatSync
-endif
-
-if executable('go-langserver')
-	au User lsp_setup call lsp#register_server({
-		\ 'name': 'go-langserver',
-		\ 'cmd': {server_info->['go-langserver', '-gocodecompletion']},
-		\ 'whitelist': ['go'],
-		\ })
-	autocmd BufWritePre *.go LspDocumentFormatSync
-endif
-
 command Term terminal ++noclose
 
 " search settings
@@ -76,3 +53,13 @@ set ignorecase
 let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_folding_disabled = 1
+
+" vim-lsp setting
+let g:lsp_signs_enabled = 1
+let g:lsp_diagnostics_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
+let g:lsp_virtual_text_enabled = 1
+let g:lsp_signs_error = {'text': '✗'}
+let g:lsp_signs_warning = {'text': '‼'}
+let g:lsp_signs_information = {'text': 'i'}
+let g:lsp_signs_hint = {'text': '?'}
