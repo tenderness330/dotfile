@@ -45,6 +45,10 @@ if !has("gui_running")
 endif
 command Term terminal ++noclose
 
+if executable('fcitx-remote')
+  inoremap <silent> <ESC> <ESC>:call system('fcitx-remote -c')<CR>
+endif
+
 " search settings
 set incsearch
 set hlsearch
