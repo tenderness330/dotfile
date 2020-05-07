@@ -32,6 +32,14 @@ set tabstop=2
 set shiftwidth=2
 set formatoptions+=B
 
+if executable('fcitx-remote')
+  inoremap <silent> <ESC> <ESC>:call system('fcitx-remote -c')<CR>
+endif
+
+set t_EI+=[<s[<0t
+set ttimeoutlen=100
+
+
 " view settings
 set termguicolors
 set cursorline
@@ -44,10 +52,6 @@ if !has("gui_running")
   let g:airline_powerline_fonts = 1
 endif
 command Term terminal ++noclose
-
-if executable('fcitx-remote')
-  inoremap <silent> <ESC> <ESC>:call system('fcitx-remote -c')<CR>
-endif
 
 " search settings
 set incsearch
