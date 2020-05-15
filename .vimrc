@@ -36,12 +36,19 @@ if executable('fcitx-remote')
   inoremap <silent> <ESC> <ESC>:call system('fcitx-remote -c')<CR>
 endif
 
+set t_SI+=[<r
 set t_EI+=[<s[<0t
-set ttimeoutlen=100
+set t_te+=[<0t[<s
+set ttimeoutlen=20
 
+if &term =~ 'screen-256color'
+  let &t_EI .= "\ePtmux;\e\e[<0t\e\\"
+"elseif &term =~ 'xterm'
+"  let
+endif
 
 " view settings
-set termguicolors
+"set termguicolors
 set cursorline
 colorscheme badwolf
 set background=dark
@@ -71,3 +78,7 @@ let g:lsp_signs_error = {'text': '✗'}
 let g:lsp_signs_warning = {'text': '‼'}
 let g:lsp_signs_information = {'text': 'i'}
 let g:lsp_signs_hint = {'text': '?'}
+
+" Previm settings
+let g:previm_open_cmd = 'firefox.exe'
+let g:previm_wsl_mode = 1
