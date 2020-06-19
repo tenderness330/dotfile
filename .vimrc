@@ -13,6 +13,14 @@ call plug#begin('~/.vim/plugged')
   Plug 'hashivim/vim-terraform' , { 'for': 'terraform'}
   Plug 'juliosueiras/vim-terraform-completion' , { 'for': 'terraform'}
 
+  Plug 'airblade/vim-gitgutter'
+  Plug 'gotchane/vim-git-commit-prefix'
+  "Plug 'tpope/vim-fugitive'
+  Plug 'iberianpig/tig-explorer.vim'
+
+
+  Plug 'scrooloose/nerdtree'
+  Plug 'Xuyuanp/nerdtree-git-plugin'
 
   "view's plugins
   Plug 'cocopon/iceberg.vim'
@@ -22,15 +30,20 @@ call plug#begin('~/.vim/plugged')
   Plug 'jacoborus/tender.vim'
   Plug 'vim-airline/vim-airline'
   Plug 'nathanaelkane/vim-indent-guides'
+
+  " sqls settings
+  Plug 'lighttiger2505/sqls.vim'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
 call plug#end()
 
 " input settings
 set expandtab
-set autoindent
 set belloff=all
 set tabstop=2
 set shiftwidth=2
 set formatoptions+=B
+set smartindent
 
 if executable('fcitx-remote')
   inoremap <silent> <ESC> <ESC>:call system('fcitx-remote -c')<CR>
@@ -43,8 +56,8 @@ set ttimeoutlen=20
 
 if &term =~ 'screen-256color'
   let &t_EI .= "\ePtmux;\e\e[<0t\e\\"
-"elseif &term =~ 'xterm'
-"  let
+elseif &term =~ 'xterm'
+  let &t_EI .= "\e[<0t"
 endif
 
 " view settings
