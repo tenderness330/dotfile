@@ -4,7 +4,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'previm/previm' , { 'for': 'markdown'}
   Plug 'mattn/sonictemplate-vim'
 
-  Plug 'prabirshrestha/async.vim'
   Plug 'prabirshrestha/vim-lsp'
   Plug 'prabirshrestha/asyncomplete.vim'
   Plug 'prabirshrestha/asyncomplete-lsp.vim'
@@ -15,7 +14,6 @@ call plug#begin('~/.vim/plugged')
 
   Plug 'airblade/vim-gitgutter'
   Plug 'gotchane/vim-git-commit-prefix'
-  "Plug 'tpope/vim-fugitive'
   Plug 'iberianpig/tig-explorer.vim'
 
 
