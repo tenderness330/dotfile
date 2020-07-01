@@ -1,8 +1,12 @@
 "vim-plug plugin
 call plug#begin('~/.vim/plugged')
+  " languages settings
+  Plug 'lighttiger2505/sqls.vim'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'plasticboy/vim-markdown' , { 'for': 'markdown'}
   Plug 'previm/previm' , { 'for': 'markdown'}
   Plug 'mattn/sonictemplate-vim'
+  Plug 'sebdah/vim-delve'
 
   Plug 'prabirshrestha/vim-lsp'
   Plug 'prabirshrestha/asyncomplete.vim'
@@ -16,6 +20,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'gotchane/vim-git-commit-prefix'
   Plug 'iberianpig/tig-explorer.vim'
 
+  " help plugin
+  Plug 'vim-jp/vimdoc-ja'
+
 
   Plug 'scrooloose/nerdtree'
   Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -28,12 +35,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'jacoborus/tender.vim'
   Plug 'vim-airline/vim-airline'
   Plug 'nathanaelkane/vim-indent-guides'
-
-  " sqls settings
-  Plug 'lighttiger2505/sqls.vim'
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'ghifarit53/tokyonight.vim'
 
 call plug#end()
+
+" lang settings
+set helplang=ja,en
 
 " input settings
 set expandtab
@@ -65,6 +72,7 @@ colorscheme badwolf
 set background=dark
 set number
 syntax enable
+set signcolumn=yes
 
 if !has("gui_running")
   let g:airline_powerline_fonts = 1
