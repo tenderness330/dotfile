@@ -7,6 +7,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'previm/previm' , { 'for': 'markdown'}
   Plug 'mattn/sonictemplate-vim'
   Plug 'sebdah/vim-delve'
+  Plug 'w0rp/ale'
 
   Plug 'prabirshrestha/vim-lsp'
   Plug 'prabirshrestha/asyncomplete.vim'
@@ -14,7 +15,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'mattn/vim-lsp-settings'
 
   Plug 'hashivim/vim-terraform' , { 'for': 'terraform'}
-  Plug 'juliosueiras/vim-terraform-completion' , { 'for': 'terraform'}
+  Plug 'juliosueiras/terraform-lsp'
 
   Plug 'airblade/vim-gitgutter'
   Plug 'gotchane/vim-git-commit-prefix'
@@ -22,7 +23,6 @@ call plug#begin('~/.vim/plugged')
 
   " help plugin
   Plug 'vim-jp/vimdoc-ja'
-
 
   Plug 'scrooloose/nerdtree'
   Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -35,8 +35,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'jacoborus/tender.vim'
   Plug 'vim-airline/vim-airline'
   Plug 'nathanaelkane/vim-indent-guides'
-  Plug 'ghifarit53/tokyonight.vim'
+  Plug 'skanehira/translate.vim'
 
+  " input plugins
+  Plug 'machakann/vim-sandwich'
 call plug#end()
 
 " lang settings
@@ -101,3 +103,12 @@ let g:lsp_signs_hint = {'text': '?'}
 " Previm settings
 let g:previm_open_cmd = 'firefox.exe'
 let g:previm_wsl_mode = 1
+
+
+if executable('terraform-lsp')
+au User lsp_setup call lsp#register_server({
+    \ 'name': 'terraform-lsp',
+    \ 'cmd': {server_info->['terraform-lsp']},
+    \ 'whitelist': ['terraform','tf'],
+    \ })
+endif
