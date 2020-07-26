@@ -26,8 +26,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'skanehira/translate.vim'
 
 
-  Plug 'scrooloose/nerdtree'
   Plug 'Xuyuanp/nerdtree-git-plugin'
+  Plug 'lambdalisue/fern.vim'
+  Plug 'mattn/vim-lexiv'
+  Plug 'mattn/webapi-vim'
 
   "view's plugins
   Plug 'cocopon/iceberg.vim'
@@ -37,6 +39,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'jacoborus/tender.vim'
   Plug 'vim-airline/vim-airline'
   Plug 'nathanaelkane/vim-indent-guides'
+  Plug 'jistr/vim-nerdtree-tabs'
+  Plug 'mechatroner/rainbow_csv'
 
   " input plugins
   Plug 'machakann/vim-sandwich'
@@ -104,14 +108,6 @@ let g:lsp_signs_hint = {'text': '?'}
 " Previm settings
 let g:previm_open_cmd = 'firefox.exe'
 let g:previm_wsl_mode = 1
-
-if executable('terraform-ls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'terraform-ls',
-        \ 'cmd': {server_info->['terraform-ls', 'serve']},
-        \ 'whitelist': ['terraform'],
-        \ })
-endif
 
 let g:terraform_align=1
 let g:terraform_fmt_on_save=1

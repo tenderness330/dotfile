@@ -18,3 +18,6 @@ set PATH $HOME/.local/bin /usr/local/go/bin $HOME/go/bin $PATH
 
 alias vi='vim'
 alias aws='/usr/local/bin/aws'
+
+export LC_CTYPE=en_US.UTF-8
+export EDITOR=vim
