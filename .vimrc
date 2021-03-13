@@ -12,9 +12,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'prabirshrestha/asyncomplete.vim'
   Plug 'prabirshrestha/asyncomplete-lsp.vim'
   Plug 'mattn/vim-lsp-settings'
+  Plug 'hrsh7th/vim-vsnip'
+  Plug 'hrsh7th/vim-vsnip-integ'
 
   Plug 'hashivim/vim-terraform' , { 'for': 'terraform'}
-  Plug 'juliosueiras/terraform-lsp'
+  "Plug 'juliosueiras/terraform-lsp'
 
   Plug 'airblade/vim-gitgutter'
   Plug 'gotchane/vim-git-commit-prefix'
@@ -24,7 +26,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-jp/vimdoc-ja'
   Plug 'thinca/vim-ref'
   Plug 'skanehira/translate.vim'
-
 
   Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'lambdalisue/fern.vim'
@@ -41,9 +42,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'nathanaelkane/vim-indent-guides'
   Plug 'jistr/vim-nerdtree-tabs'
   Plug 'mechatroner/rainbow_csv'
+  Plug 'skanehira/preview-markdown.vim'
 
   " input plugins
-  Plug 'machakann/vim-sandwich'
+  "Plug 'machakann/vim-sandwich'
 call plug#end()
 
 " lang settings
@@ -53,9 +55,15 @@ set helplang=ja,en
 set expandtab
 set belloff=all
 set tabstop=2
+set softtabstop=2
 set shiftwidth=2
 set formatoptions+=B
 set smartindent
+
+augroup fileTypeIndent
+  autocmd!
+  autocmd BufNewFile,BufRead *.go setlocal noexpandtab
+augroup END
 
 if executable('fcitx-remote')
   inoremap <silent> <ESC> <ESC>:call system('fcitx-remote -c')<CR>
@@ -100,13 +108,15 @@ let g:lsp_signs_enabled = 1
 let g:lsp_diagnostics_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_virtual_text_enabled = 1
+
 let g:lsp_signs_error = {'text': '✗'}
 let g:lsp_signs_warning = {'text': '‼'}
 let g:lsp_signs_information = {'text': 'i'}
 let g:lsp_signs_hint = {'text': '?'}
+let g:asyncomplete_popup_delay = 1
 
 " Previm settings
-let g:previm_open_cmd = 'firefox.exe'
+let g:previm_open_cmd = 'brave.exe'
 let g:previm_wsl_mode = 1
 
 let g:terraform_align=1
@@ -121,3 +131,8 @@ let g:lsp_settings = {
 \     }
 \   },
 \}
+
+let g:sonictemplate_vim_template_dir = [
+\ '~/.vim/template'
+\ ]
+
